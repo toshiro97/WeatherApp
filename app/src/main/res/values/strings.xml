@@ -51,8 +51,21 @@
     <string name="smoke">Smoke</string>
     <string name="haze">Haze</string>
     <string name="sand_dust">Sand and dust</string>
+
+
+
     <string name="frog">Frog</string>
     <string name="clear_sky">Clear sky sun</string>
     <string name="broken_clounds">Broken clounds</string>
+    <string name="overcast_clouds">Overcast clouds</string>
+    <string name="unknown_precipitation">Unknown Precipitation</string>
+    <string name="north">north</string>
+    <string name="north_east">north east</string>
+    <string name="east">nast</string>
+    <string name="south_east">south east</string>
+    <string name="south">south</string>
+    <string name="south_west">south west</string>
+    <string name="west">west</string>
+    <string name="north_west">north west</string>
 
 </resources>

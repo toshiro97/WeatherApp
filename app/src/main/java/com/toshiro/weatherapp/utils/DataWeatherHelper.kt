@@ -52,7 +52,7 @@ class DataWeatherHelper {
             return "${Resources.getSystem().getString(R.string.today)} - "
         }
 
-        private fun formatStatusWeather(code : Int) : String{
+        private fun formatStatusWeather(code: Int): String {
             when (code) {
                 in 200..2002 -> {
                     //Thunderstorm, rain
@@ -113,13 +113,43 @@ class DataWeatherHelper {
                     return Resources.getSystem().getString(R.string.broken_clounds)
                 }
                 804 -> {
-                    return "4806-weather-windy.json"
-                }
-                900 -> {
-                    return "4796-weather-cloudynight.json"
+                    return Resources.getSystem().getString(R.string.overcast_clouds)
                 }
                 else -> {
-                    return "4796-weather-cloudynight.json"
+                    return Resources.getSystem().getString(R.string.unknown_precipitation)
+                }
+
+            }
+        }
+
+        private fun formatWindDirection(windDirection: String): String {
+            when (windDirection) {
+                "N" -> {
+                    return Resources.getSystem().getString(R.string.north)
+                }
+                "NE" -> {
+                    return Resources.getSystem().getString(R.string.north_east)
+                }
+                "E" -> {
+                    return Resources.getSystem().getString(R.string.east)
+                }
+                "SE" -> {
+                    return Resources.getSystem().getString(R.string.south_east)
+                }
+                "S" -> {
+                    return Resources.getSystem().getString(R.string.south)
+                }
+                "SW" -> {
+                    return Resources.getSystem().getString(R.string.south_west)
+                }
+                "W" -> {
+                    return Resources.getSystem().getString(R.string.west)
+                }
+                "NW" -> {
+                    return Resources.getSystem().getString(R.string.north_west)
+                }
+                else -> {
+                    return "unknow"
                 }
             }
         }
