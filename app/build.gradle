@@ -88,4 +88,12 @@ dependencies {
     //circle button
 
     implementation 'com.github.markushi:circlebutton:1.1'
+
+    implementation project(':temperaturelibrary')
+
+
+//    lottie
+    implementation 'com.airbnb.android:lottie:3.0.7'
+
+
 }

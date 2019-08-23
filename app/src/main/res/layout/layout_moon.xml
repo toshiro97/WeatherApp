@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginBottom="@dimen/padding_16dp"
+        android:text="@string/moon"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/padding_8dp">
+
+            <com.toshiro.customview.MoonCustomView
+                android:id="@+id/moonInDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:percent_moon="0.6"
+                />
+
+            <TextView
+                android:id="@+id/tvToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:text="@string/today"
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/tvStatusMoonInDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khuyết cuối tháng"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/padding_8dp">
+
+            <com.toshiro.customview.MoonCustomView
+                android:id="@+id/moonInZero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:percent_moon="0.0"
+                />
+
+            <TextView
+                android:id="@+id/tvMoonZero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:text="@string/today"
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/tvStatusMoonInZero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khuyết cuối tháng"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/padding_8dp">
+
+            <com.toshiro.customview.MoonCustomView
+                android:id="@+id/moonInFull"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:percent_moon="1"
+                />
+
+            <TextView
+                android:id="@+id/tvMoonFull"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:text="@string/today"
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:id="@+id/tvStatusMoonInFull"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khuyết cuối tháng"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

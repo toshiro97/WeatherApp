@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="ok">Đồng ý</string>
+    <string name="location_access_required">Location Access Required</string>
+    <string name="location_permission_not_available">Location permission not available</string>
+    <string name="location_permission_granted">Location permission granted</string>
+    <string name="location_permission_denied">Location permission denied</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="img_logo">img_logo</string>
+    <string name="today_weather">today weather</string>
+    <string name="intro_app">Một ứng dụng thời tiết đẹp và dễ sử dụng</string>
+    <string name="hint_name">Nhập tên của bạn và bắt đầu sử dụng</string>
+    <string name="set_name_error">Please enter your name</string>
+
+
+    <!--detail weather-->
+    <string name="fell_like">Cảm giác như</string>
+    <string name="humidity">Độ ẩm</string>
+    <string name="uv_index">Chỉ số UV</string>
+    <string name="vision">Tầm nhìn</string>
+    <string name="dewpoint">Điểm sương</string>
+    <string name="pressure">áp suất</string>
+    <string name="detail">Chi tiết</string>
+    <string name="seven_day_next">7 ngày tiếp</string>
+    <string name="rain_percent">Khả năng mưa</string>
+    <string name="air_index">Chỉ số không khí</string>
+    <string name="sun">Mặt trời</string>
+    <string name="moon">Mặt trăng</string>
+    <string name="today">Hôm nay</string>
+
+    <!--    clound status-->
+    <string name="cloud_little">Ít Mây</string>
+    <string name="cloud_much">Nhiều Mây</string>
+
+
+    <!--    status weather description-->
+    <string name="thunderstorm_rain">Mưa có sấm sét</string>
+    <string name="thunderstorm_drizzle">Mưa phùn có sấm set</string>
+    <string name="drizzle">Mưa phùn</string>
+    <string name="rain">Mưa</string>
+    <string name="snow">Tuyết</string>
+    <string name="sleet">Mưa đá</string>
+    <string name="snow_shower">Mưa tuyết</string>
+    <string name="flurries">Flurries</string>
+    <string name="mist">Mist</string>
+    <string name="smoke">Smoke</string>
+    <string name="haze">Haze</string>
+    <string name="sand_dust">Sand and dust</string>
+
+</resources>

@@ -4,7 +4,7 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
             app:startDestination="@id/splashFragment">
     <fragment android:id="@+id/splashFragment"
-              android:name="com.example.weatherapp.ui.splash.SplashFragment"
+              android:name="com.toshiro.weatherapp.ui.splash.SplashFragment"
               android:label="fragment_splash"
               tools:layout="@layout/fragment_splash">
         <action android:id="@+id/action_splashFragment_to_homeFragment"
@@ -22,18 +22,30 @@
                 app:exitAnim="@anim/slide_out_left"/>
     </fragment>
 
-    <fragment android:id="@+id/introFragment" android:name="com.example.weatherapp.ui.walkthrough.IntroFragment"
+    <fragment android:id="@+id/introFragment" android:name="com.toshiro.weatherapp.ui.walkthrough.IntroFragment"
               android:label="fragment_intro" tools:layout="@layout/fragment_intro">
-        <action android:id="@+id/action_introFragment_to_setNameFragment" app:destination="@id/setNameFragment"/>
+        <action android:id="@+id/action_introFragment_to_setNameFragment"
+                app:destination="@id/setNameFragment"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+        />
     </fragment>
-    <fragment android:id="@+id/setNameFragment" android:name="com.example.weatherapp.ui.walkthrough.SetNameFragment"
+    <fragment android:id="@+id/setNameFragment" android:name="com.toshiro.weatherapp.ui.walkthrough.SetNameFragment"
               android:label="fragment_set_name" tools:layout="@layout/fragment_set_name">
-        <action android:id="@+id/action_setNameFragment_to_homeFragment" app:destination="@id/homeFragment"/>
+        <action android:id="@+id/action_setNameFragment_to_homeFragment"
+                app:destination="@id/homeFragment"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+        />
     </fragment>
 
 
     <fragment android:id="@+id/homeFragment"
-              android:name="com.example.weatherapp.ui.home.HomeFragment"
+              android:name="com.toshiro.weatherapp.ui.home.HomeFragment"
               android:label="fragment_home"
               tools:layout="@layout/fragment_home"/>
 
