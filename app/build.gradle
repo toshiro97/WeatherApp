@@ -96,4 +96,7 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.0.7'
 
 
+    implementation 'com.github.florent37:runtime-permission-kotlin:1.1.1'
+
+
 }

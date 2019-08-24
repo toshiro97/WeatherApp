@@ -46,5 +46,13 @@ abstract class BaseFragment : Fragment(), BaseContract.View {
         loadError(e.localizedMessage)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        System.gc()
+        System.runFinalization()
+        hideLoading()
+        mProgressDialog = null
+    }
+
 
 }

@@ -67,5 +67,21 @@
     <string name="south_west">south west</string>
     <string name="west">west</string>
     <string name="north_west">north west</string>
+    <string name="unknow_weather">unknown weather</string>
+    <string name="hight">Hight</string>
+    <string name="celsius">°C</string>
+    <string name="low">low</string>
+    <string name="wind">Wind</string>
+    <string name="speed">speed</string>
+    <string name="km_per_hour">km/h</string>
+    <string name="ability_to_rain">Ability to rain</string>
+    <string name="north_north_east">north - north east</string>
+    <string name="east_north_east">east - north east</string>
+    <string name="east_south_east">east - south east</string>
+    <string name="south_south_east">south - south east</string>
+    <string name="south_south_west">south - south west</string>
+    <string name="west_south_west">west - south west</string>
+    <string name="west_north_west">west - north west</string>
+    <string name="north_north_west">north - north west</string>
 
 </resources>

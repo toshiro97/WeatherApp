@@ -71,7 +71,7 @@ data class DataCurrent(
     @SerializedName("uv")
     val uv: Double,
     @SerializedName("vis")
-    val vis: Double,
+    val vis: Int,
     @SerializedName("weather")
     val weather: Weather,
     @SerializedName("wind_cdir")

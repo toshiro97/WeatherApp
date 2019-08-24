@@ -1,6 +1,7 @@
 package com.toshiro.weatherapp.ui.base
 
 import androidx.annotation.CallSuper
+import com.toshiro.weatherapp.utils.Constant
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 

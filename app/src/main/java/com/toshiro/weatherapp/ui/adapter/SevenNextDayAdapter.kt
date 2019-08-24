@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
 import com.toshiro.weatherapp.R
-import com.toshiro.weatherapp.data.network.halfMonthWeather.DataForeCast
+import com.toshiro.weatherapp.data.network.dailyWeather.DataDaily
 import com.toshiro.weatherapp.utils.DateHelper.Companion.formatDateToDayOfWeek
 import com.toshiro.weatherapp.utils.IconWeatherHelper
 
 
-class SevenNextDayAdapter(private val context: Context, private val listForeCast: MutableList<DataForeCast>) :
+class SevenNextDayAdapter(private val context: Context, private val listDaily: MutableList<DataDaily>) :
     RecyclerView.Adapter<SevenNextDayAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SevenNextDayAdapter.ViewHolder {
@@ -21,11 +21,11 @@ class SevenNextDayAdapter(private val context: Context, private val listForeCast
         return ViewHolder(inflater, parent)
     }
 
-    override fun getItemCount(): Int = listForeCast.size
+    override fun getItemCount(): Int = listDaily.size
 
-    override fun onBindViewHolder(holder: SevenNextDayAdapter.ViewHolder, position: Int) {
-        val foreCast: DataForeCast = listForeCast[position]
-        holder.bind(foreCast)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val dataDaily: DataDaily = listDaily[position]
+        holder.bind(dataDaily)
     }
 
 
@@ -48,15 +48,15 @@ class SevenNextDayAdapter(private val context: Context, private val listForeCast
             tvDayOfWeek = itemView.findViewById(R.id.tvDayOfWeek)
         }
 
-        fun bind(dataForeCast: DataForeCast) {
-            tvMaxTemp!!.text = dataForeCast.maxTemp.toString()
-            tvMinTemp!!.text = dataForeCast.minTemp.toString()
-            tvHumidity!!.text = dataForeCast.rh.toString()
-            tvDayOfWeek!!.text = formatDateToDayOfWeek(dataForeCast.datetime)
+        fun bind(dataDaily: DataDaily) {
+            tvMaxTemp!!.text = dataDaily.maxTemp.toString()
+            tvMinTemp!!.text = dataDaily.minTemp.toString()
+            tvHumidity!!.text = dataDaily.rh.toString()
+            tvDayOfWeek!!.text = formatDateToDayOfWeek(dataDaily.datetime)
 
-            lottieIcon!!.setAnimation(IconWeatherHelper.setIconWeather(dataForeCast.weather.code.toInt()))
+            lottieIcon!!.setAnimation(IconWeatherHelper.setIconWeather(dataDaily.weather.code.toInt()))
 
-            tempProcess!!.layoutParams.height = (dataForeCast.maxTemp - dataForeCast.minTemp).toInt() * 8
+            tempProcess!!.layoutParams.height = (dataDaily.maxTemp - dataDaily.minTemp).toInt() * 8
         }
 
     }

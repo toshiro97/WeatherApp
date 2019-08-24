@@ -37,10 +37,12 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        initView(view)
+
         val activity = activity as AppCompatActivity?
         activity!!.setSupportActionBar(mToolbar)
 
-        initView(view)
+
 
         return view
 

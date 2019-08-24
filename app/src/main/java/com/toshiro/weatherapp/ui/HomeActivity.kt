@@ -1,24 +1,17 @@
 package com.toshiro.weatherapp.ui
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import android.util.Log
+import android.widget.Toast
+import com.github.florent37.runtimepermission.kotlin.askPermission
 import com.toshiro.weatherapp.R
-import com.toshiro.weatherapp.utils.checkSelfPermissionCompat
-import com.toshiro.weatherapp.utils.requestPermissionsCompat
-import com.toshiro.weatherapp.utils.shouldShowRequestPermissionRationaleCompat
-import com.toshiro.weatherapp.utils.showSnackbar
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_home.*
 
-const val PERMISSION_REQUEST_LOCATION = 100
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -31,58 +24,44 @@ class HomeActivity : AppCompatActivity() {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        requestLocationPermission()
+
         showLocation()
-    }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        if (requestCode == PERMISSION_REQUEST_LOCATION) {
+        PackageManager.PERMISSION_GRANTED
 
-            if (grantResults.size == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                contentHome.showSnackbar(R.string.location_permission_granted, Snackbar.LENGTH_SHORT)
-            } else {
-                contentHome.showSnackbar(R.string.location_permission_denied, Snackbar.LENGTH_SHORT)
-
-            }
-        }
     }
 
     private fun showLocation() {
+        fusedLocationClient.lastLocation
+            .addOnSuccessListener { location: Location? ->
+                Log.d("HomeActivityLog", location.toString())
+                longitude = location!!.longitude
+                latitude = location.latitude
+                Log.d("HomeActivityLog", longitude.toString() + " " + latitude.toString())
 
-        if (checkSelfPermissionCompat(Manifest.permission.ACCESS_COARSE_LOCATION) !=
-            PackageManager.PERMISSION_GRANTED
-        ) {
-
-            fusedLocationClient.lastLocation
-                .addOnSuccessListener { location: Location? ->
-                    longitude = location!!.longitude
-                    latitude = location.latitude
-                }
-        } else {
-            requestLocationPermission()
-        }
+            }
 
     }
 
     private fun requestLocationPermission() {
-        if (shouldShowRequestPermissionRationaleCompat(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-            contentHome.showSnackbar(
-                R.string.location_access_required,
-                Snackbar.LENGTH_INDEFINITE, R.string.ok
-            ) {
+        askPermission(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        ) {
+            showLocation()
 
-                requestPermissionsCompat(
-                    arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
-                    PERMISSION_REQUEST_LOCATION
-                )
+        }.onDeclined { e ->
+            if (e.hasDenied()) {
+                Toast.makeText(this, "hasDenied", Toast.LENGTH_LONG).show()
+                e.askAgain()
+                return@onDeclined
             }
 
-        } else {
-            contentHome.showSnackbar(R.string.location_permission_not_available, Snackbar.LENGTH_SHORT)
-            requestPermissionsCompat(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), PERMISSION_REQUEST_LOCATION)
+            if (e.hasForeverDenied()) {
+                Toast.makeText(this, "hasForeverDenied", Toast.LENGTH_LONG).show()
+                e.goToSettings()
+            }
         }
     }
 

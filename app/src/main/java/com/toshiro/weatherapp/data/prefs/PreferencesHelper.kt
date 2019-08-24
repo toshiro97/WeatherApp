@@ -8,4 +8,6 @@ interface PreferencesHelper {
     fun setUser(user: String)
 
     fun getUser(): String
+
+
 }

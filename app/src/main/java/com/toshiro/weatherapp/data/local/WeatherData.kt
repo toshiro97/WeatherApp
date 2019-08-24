@@ -37,13 +37,13 @@ data class WeatherData(
     var list_hourly: MutableList<DataHourly>,
 
     @ColumnInfo(name = "feelTemp")
-    var feel_temp: String,
+    var feel_temp: Double,
 
     @ColumnInfo(name = "relativeHumidity ")
     var rh: Int,
 
     @ColumnInfo(name = "uv")
-    var uv: Int,
+    var uv: Double,
 
     @ColumnInfo(name = "visibility")
     var visibility: Int,
@@ -77,5 +77,4 @@ data class WeatherData(
     var wind_direction: String
 
 
-) {
-}
+)
