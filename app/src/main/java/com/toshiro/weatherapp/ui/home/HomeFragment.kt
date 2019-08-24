@@ -10,10 +10,16 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.navigation.NavigationView
 import com.toshiro.weatherapp.R
+import com.toshiro.weatherapp.data.local.WeatherData
+import com.toshiro.weatherapp.data.network.currentWeather.DataCurrent
 import com.toshiro.weatherapp.ui.base.BaseFragment
+import com.toshiro.weatherapp.utils.Constant
 
 
-class HomeFragment : BaseFragment(), View.OnClickListener {
+class HomeFragment : BaseFragment(), View.OnClickListener, HomeContract.View {
+    override fun showAllData(weatherData: WeatherData) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
 
     private lateinit var mToolbar: Toolbar
@@ -26,8 +32,12 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
     private lateinit var mBtnSetting: ImageView
     private lateinit var mViewPager: ViewPager
 
-    override fun setUpView(view: View) {
+    private var homePresent: HomePresent? = null
 
+    override fun setUpView(view: View) {
+        getPresenter().let {
+            it!!.getAndConverterData("", 105.7934252, 21.0376641)
+        }
 
     }
 
@@ -42,8 +52,7 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
         val activity = activity as AppCompatActivity?
         activity!!.setSupportActionBar(mToolbar)
 
-
-
+        activity.application
         return view
 
     }
@@ -88,6 +97,11 @@ class HomeFragment : BaseFragment(), View.OnClickListener {
                 // do open setting
             }
         }
+    }
+
+    fun getPresenter(): HomePresent? {
+        homePresent = HomePresent(this, activity!!.application)
+        return homePresent
     }
 
 

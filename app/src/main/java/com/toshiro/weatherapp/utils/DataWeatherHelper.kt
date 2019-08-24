@@ -1,54 +1,56 @@
 package com.toshiro.weatherapp.utils
 
+import android.content.Context
 import android.content.res.Resources
-import android.location.Location
 import com.toshiro.weatherapp.R
+import com.toshiro.weatherapp.data.local.LocationWeather
 import com.toshiro.weatherapp.data.local.WeatherData
 import com.toshiro.weatherapp.data.network.currentWeather.DataCurrent
 import com.toshiro.weatherapp.data.network.dailyWeather.DataDaily
 import com.toshiro.weatherapp.data.network.hourlyWeather.DataHourly
 
-class DataWeatherHelper {
+
+class DataWeatherHelper(var context: Context) {
 
     companion object {
-        lateinit var data: WeatherData
-
 
         fun convertWeatherBit(
             dataCurrent: DataCurrent,
-            dataDaily: DataDaily,
-            dataHourly: DataHourly,
-            location: Location
+            dataDaily: MutableList<DataDaily>,
+            dataHourly: MutableList<DataHourly>,
+            location: LocationWeather
         ): WeatherData {
-            data.image_url = ""
+            val data: WeatherData? = WeatherData()
+
+            data!!.image_url = ""
             data.temp = dataCurrent.temp
-            data.max_temp = dataDaily.maxTemp
-            data.min_temp = dataDaily.minTemp
+            data.max_temp = dataDaily[0].maxTemp
+            data.min_temp = dataDaily[0].minTemp
             data.date = DateHelper.getDate()
-            data.locationWeather.lat = location.latitude
-            data.locationWeather.long = location.longitude
-            data.status_sky = formatStatusSky(dataCurrent.clouds)
+            data.locationWeather = location
+
+            data.status_sky = formatStatusSky(dataCurrent.clouds.toInt())
             data.description_weather =
                 formatDescriptionSky(
-                    dataDaily.weather.code,
-                    dataDaily.maxTemp,
-                    dataDaily.minTemp,
-                    dataDaily.windCdir,
-                    dataDaily.windSpd,
-                    dataDaily.pop
+                    dataDaily[0].weather.code,
+                    dataDaily[0].maxTemp.toDouble(),
+                    dataDaily[0].minTemp.toDouble(),
+                    dataDaily[0].windCdir,
+                    dataDaily[0].windSpd.toDouble(),
+                    dataDaily[0].pop.toInt()
                 )
-            data.list_hourly = mutableListOf(dataHourly)
+            data.list_hourly = dataHourly
             data.feel_temp = dataCurrent.temp
             data.rh = dataCurrent.rh
             data.uv = dataCurrent.uv
             data.visibility = dataCurrent.vis
             data.dewpt = dataCurrent.dewpt
             data.pres = dataCurrent.pres
-            data.list_daily = mutableListOf(dataDaily)
+            data.list_daily = dataDaily
             data.air_indicator = dataCurrent.aqi
             data.sunrise = dataCurrent.sunrise
             data.sunset = dataCurrent.sunset
-            data.percent_moon = dataDaily.moonPhase
+            data.percent_moon = dataDaily[0].moonPhase
             data.wind_speed = dataCurrent.windSpd
             data.wind_direction = dataCurrent.windCdir
 

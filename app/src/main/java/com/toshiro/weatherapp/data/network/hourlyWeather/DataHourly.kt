@@ -6,57 +6,57 @@ import com.toshiro.weatherapp.data.network.Weather
 
 data class DataHourly(
     @SerializedName("app_temp")
-    val appTemp: Double,
+    val appTemp: Number,
     @SerializedName("clouds")
-    val clouds: Int,
+    val clouds: Number,
     @SerializedName("clouds_hi")
-    val cloudsHi: Int,
+    val cloudsHi: Number,
     @SerializedName("clouds_low")
-    val cloudsLow: Int,
+    val cloudsLow: Number,
     @SerializedName("clouds_mid")
-    val cloudsMid: Int,
+    val cloudsMid: Number,
     @SerializedName("datetime")
     val datetime: String,
     @SerializedName("dewpt")
-    val dewpt: Double,
+    val dewpt: Number,
     @SerializedName("dhi")
-    val dhi: Double,
+    val dhi: Number,
     @SerializedName("dni")
-    val dni: Double,
+    val dni: Number,
     @SerializedName("ghi")
-    val ghi: Double,
+    val ghi: Number,
     @SerializedName("ozone")
-    val ozone: Double,
+    val ozone: Number,
     @SerializedName("pod")
     val pod: String,
     @SerializedName("pop")
-    val pop: Int,
+    val pop: Number,
     @SerializedName("precip")
-    val precip: Double,
+    val precip: Number,
     @SerializedName("pres")
-    val pres: Double,
+    val pres: Number,
     @SerializedName("rh")
-    val rh: Int,
+    val rh: Number,
     @SerializedName("slp")
-    val slp: Double,
+    val slp: Number,
     @SerializedName("snow")
-    val snow: Int,
+    val snow: Number,
     @SerializedName("snow_depth")
-    val snowDepth: Int,
+    val snowDepth: Number,
     @SerializedName("solar_rad")
-    val solarRad: Double,
+    val solarRad: Number,
     @SerializedName("temp")
-    val temp: Double,
+    val temp: Number,
     @SerializedName("timestamp_local")
     val timestampLocal: String,
     @SerializedName("timestamp_utc")
     val timestampUtc: String,
     @SerializedName("ts")
-    val ts: Int,
+    val ts: Number,
     @SerializedName("uv")
-    val uv: Double,
+    val uv: Number,
     @SerializedName("vis")
-    val vis: Double,
+    val vis: Number,
     @SerializedName("weather")
     val weather: Weather,
     @SerializedName("wind_cdir")
@@ -64,9 +64,9 @@ data class DataHourly(
     @SerializedName("wind_cdir_full")
     val windCdirFull: String,
     @SerializedName("wind_dir")
-    val windDir: Int,
+    val windDir: Number,
     @SerializedName("wind_gust_spd")
-    val windGustSpd: Double,
+    val windGustSpd: Number,
     @SerializedName("wind_spd")
-    val windSpd: Double
+    val windSpd: Number
 )

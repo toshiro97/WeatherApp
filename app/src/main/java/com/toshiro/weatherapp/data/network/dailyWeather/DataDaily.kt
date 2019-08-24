@@ -6,63 +6,63 @@ import com.toshiro.weatherapp.data.network.Weather
 
 data class DataDaily(
     @SerializedName("app_max_temp")
-    val appMaxTemp: Double,
+    val appMaxTemp: Number,
     @SerializedName("app_min_temp")
-    val appMinTemp: Double,
+    val appMinTemp: Number,
     @SerializedName("clouds")
-    val clouds: Int,
+    val clouds: Number,
     @SerializedName("clouds_hi")
-    val cloudsHi: Int,
+    val cloudsHi: Number,
     @SerializedName("clouds_low")
-    val cloudsLow: Int,
+    val cloudsLow: Number,
     @SerializedName("clouds_mid")
-    val cloudsMid: Int,
+    val cloudsMid: Number,
     @SerializedName("datetime")
     val datetime: String,
     @SerializedName("dewpt")
-    val dewpt: Double,
+    val dewpt: Number,
     @SerializedName("max_dhi")
     val maxDhi: Any,
     @SerializedName("max_temp")
-    val maxTemp: Double,
+    val maxTemp: Number,
     @SerializedName("min_temp")
-    val minTemp: Double,
+    val minTemp: Number,
     @SerializedName("moon_phase")
-    val moonPhase: Double,
+    val moonPhase: Number,
     @SerializedName("moonrise_ts")
-    val moonriseTs: Int,
+    val moonriseTs: Number,
     @SerializedName("moonset_ts")
-    val moonsetTs: Int,
+    val moonsetTs: Number,
     @SerializedName("ozone")
-    val ozone: Double,
+    val ozone: Number,
     @SerializedName("pop")
-    val pop: Int,
+    val pop: Number,
     @SerializedName("precip")
-    val precip: Int,
+    val precip: Number,
     @SerializedName("pres")
-    val pres: Double,
+    val pres: Number,
     @SerializedName("rh")
-    val rh: Int,
+    val rh: Number,
     @SerializedName("slp")
-    val slp: Double,
+    val slp: Number,
     @SerializedName("snow")
-    val snow: Int,
+    val snow: Number,
     @SerializedName("snow_depth")
-    val snowDepth: Int,
+    val snowDepth: Number,
     @SerializedName("sunrise_ts")
-    val sunriseTs: Int,
+    val sunriseTs: Number,
     @SerializedName("sunset_ts")
-    val sunsetTs: Int,
+    val sunsetTs: Number,
     @SerializedName("temp")
-    val temp: Int,
+    val temp: Number,
     @SerializedName("ts")
-    val ts: Int,
+    val ts: Number,
     @SerializedName("uv")
-    val uv: Double,
+    val uv: Number,
     @SerializedName("valid_date")
     val validDate: String,
     @SerializedName("vis")
-    val vis: Double,
+    val vis: Number,
     @SerializedName("weather")
     val weather: Weather,
     @SerializedName("wind_cdir")
@@ -70,9 +70,9 @@ data class DataDaily(
     @SerializedName("wind_cdir_full")
     val windCdirFull: String,
     @SerializedName("wind_dir")
-    val windDir: Int,
+    val windDir: Number,
     @SerializedName("wind_gust_spd")
-    val windGustSpd: Double,
+    val windGustSpd: Number,
     @SerializedName("wind_spd")
-    val windSpd: Double
+    val windSpd: Number
 )

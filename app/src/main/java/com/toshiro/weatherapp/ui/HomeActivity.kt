@@ -30,6 +30,8 @@ class HomeActivity : AppCompatActivity() {
 
         PackageManager.PERMISSION_GRANTED
 
+
+
     }
 
     private fun showLocation() {

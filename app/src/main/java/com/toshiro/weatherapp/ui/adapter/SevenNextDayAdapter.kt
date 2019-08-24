@@ -56,7 +56,7 @@ class SevenNextDayAdapter(private val context: Context, private val listDaily: M
 
             lottieIcon!!.setAnimation(IconWeatherHelper.setIconWeather(dataDaily.weather.code.toInt()))
 
-            tempProcess!!.layoutParams.height = (dataDaily.maxTemp - dataDaily.minTemp).toInt() * 8
+            tempProcess!!.layoutParams.height = (dataDaily.maxTemp.toInt() - dataDaily.minTemp.toInt()) * 8
         }
 
     }

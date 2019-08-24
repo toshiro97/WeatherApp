@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseDailyWeather(
     @SerializedName("data")
-    val `data`: List<DataDaily>,
+    val `data`: MutableList<DataDaily>,
     @SerializedName("city_name")
     val cityName: String,
     @SerializedName("country_code")
