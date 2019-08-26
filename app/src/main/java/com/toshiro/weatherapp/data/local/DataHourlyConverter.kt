@@ -10,18 +10,18 @@ class DataHourlyConverter {
     var gson = Gson()
 
     @TypeConverter
-    fun fromHourlyList(data: String?): MutableList<DataHourly>? {
+    fun fromHourlyList(data: String?): List<DataHourly>? {
 
-        if (data == null){
+        if (data == null) {
             return Collections.emptyList()
         }
-        val listType = object : TypeToken<MutableList<String>>() {}.type
+        val listType = object : TypeToken<List<String>>() {}.type
         return gson.fromJson(data, listType)
 
     }
 
     @TypeConverter
-    fun listHourlyToString(listHourly: MutableList<DataHourly>?): String? {
+    fun listHourlyToString(listHourly: List<DataHourly>?): String? {
         return gson.toJson(listHourly)
     }
 

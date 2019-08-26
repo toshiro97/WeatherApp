@@ -1,59 +1,56 @@
 package com.toshiro.weatherapp.data.network.currentWeather
 
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import com.toshiro.weatherapp.data.network.Weather
 
-
 data class DataCurrent(
     @SerializedName("app_temp")
-    val appTemp: Number,
+    val appTemp: Double,
     @SerializedName("aqi")
-    val aqi: Number,
+    val aqi: Double,
     @SerializedName("city_name")
     val cityName: String,
     @SerializedName("clouds")
-    val clouds: Number,
+    val clouds: Double,
     @SerializedName("country_code")
     val countryCode: String,
     @SerializedName("datetime")
     val datetime: String,
     @SerializedName("dewpt")
-    val dewpt: Number,
+    val dewpt: Double,
     @SerializedName("dhi")
-    val dhi: Number,
+    val dhi: Double,
     @SerializedName("dni")
-    val dni: Number,
+    val dni: Double,
     @SerializedName("elev_angle")
-    val elevAngle: Number,
+    val elevAngle: Double,
     @SerializedName("ghi")
-    val ghi: Number,
+    val ghi: Double,
     @SerializedName("h_angle")
-    val hAngle: Number,
+    val hAngle: Double,
     @SerializedName("last_ob_time")
     val lastObTime: String,
     @SerializedName("lat")
-    val lat: Number,
+    val lat: Double,
     @SerializedName("lon")
-    val lon: Number,
+    val lon: Double,
     @SerializedName("ob_time")
     val obTime: String,
     @SerializedName("pod")
     val pod: String,
     @SerializedName("precip")
-    val precip: Number,
+    val precip: Double,
     @SerializedName("pres")
-    val pres: Number,
+    val pres: Double,
     @SerializedName("rh")
-    val rh: Number,
+    val rh: Double,
     @SerializedName("slp")
-    val slp: Number,
+    val slp: Double,
     @SerializedName("snow")
-    val snow: Number,
+    val snow: Double,
     @SerializedName("solar_rad")
-    val solarRad: Number,
+    val solarRad: Double,
     @SerializedName("state_code")
     val stateCode: String,
     @SerializedName("station")
@@ -63,15 +60,15 @@ data class DataCurrent(
     @SerializedName("sunset")
     val sunset: String,
     @SerializedName("temp")
-    val temp: Number,
+    val temp: Double,
     @SerializedName("timezone")
     val timezone: String,
     @SerializedName("ts")
-    val ts: Number,
+    val ts: Double,
     @SerializedName("uv")
-    val uv: Number,
+    val uv: Double,
     @SerializedName("vis")
-    val vis: Number,
+    val vis: Double,
     @SerializedName("weather")
     val weather: Weather,
     @SerializedName("wind_cdir")
@@ -79,7 +76,7 @@ data class DataCurrent(
     @SerializedName("wind_cdir_full")
     val windCdirFull: String,
     @SerializedName("wind_dir")
-    val windDir: Number,
+    val windDir: Double,
     @SerializedName("wind_spd")
-    val windSpd: Number
+    val windSpd: Double
 )

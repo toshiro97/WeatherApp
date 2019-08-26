@@ -3,9 +3,9 @@ package com.toshiro.weatherapp.data.network.hourlyWeather
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseHourlyWeather(
+data class ResponseHourly(
     @SerializedName("data")
-    val `data`: MutableList<DataHourly>,
+    val `data`: List<DataHourly>,
     @SerializedName("city_name")
     val cityName: String,
     @SerializedName("country_code")

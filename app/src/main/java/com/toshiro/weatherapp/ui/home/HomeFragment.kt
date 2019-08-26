@@ -10,16 +10,16 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.navigation.NavigationView
 import com.toshiro.weatherapp.R
-import com.toshiro.weatherapp.data.local.WeatherData
-import com.toshiro.weatherapp.data.network.currentWeather.DataCurrent
+import com.toshiro.weatherapp.ui.adapter.HomePagerAdapter
 import com.toshiro.weatherapp.ui.base.BaseFragment
-import com.toshiro.weatherapp.utils.Constant
+import android.widget.Toast
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.toshiro.weatherapp.data.database.AppDatabase
+import com.toshiro.weatherapp.data.local.WeatherData
+import com.toshiro.weatherapp.utils.ZoomOutPageTransformer
 
 
 class HomeFragment : BaseFragment(), View.OnClickListener, HomeContract.View {
-    override fun showAllData(weatherData: WeatherData) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
 
     private lateinit var mToolbar: Toolbar
@@ -31,14 +31,16 @@ class HomeFragment : BaseFragment(), View.OnClickListener, HomeContract.View {
     private lateinit var mBtnAddLocation: ImageView
     private lateinit var mBtnSetting: ImageView
     private lateinit var mViewPager: ViewPager
+    private lateinit var mAdapter: HomePagerAdapter
 
-    private var homePresent: HomePresent? = null
+    private var appDatabase: AppDatabase? = null
+    private var mListDataWeather: List<WeatherData>? = null
+
+    private var mHomePresent: HomePresent ?= null
+
 
     override fun setUpView(view: View) {
-        getPresenter().let {
-            it!!.getAndConverterData("", 105.7934252, 21.0376641)
-        }
-
+        getHomePresenter().getDataFromDatabase()
     }
 
     override fun onCreateView(
@@ -46,13 +48,15 @@ class HomeFragment : BaseFragment(), View.OnClickListener, HomeContract.View {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        appDatabase = AppDatabase.getAppDataBase(context!!)
 
         initView(view)
 
         val activity = activity as AppCompatActivity?
         activity!!.setSupportActionBar(mToolbar)
 
-        activity.application
+        getHomePresenter()
+
         return view
 
     }
@@ -75,6 +79,9 @@ class HomeFragment : BaseFragment(), View.OnClickListener, HomeContract.View {
         mBtnShareImage.setOnClickListener(this)
         mBtnAddLocation.setOnClickListener(this)
         mBtnSetting.setOnClickListener(this)
+
+        //setup viewpager
+
 
     }
 
@@ -99,9 +106,57 @@ class HomeFragment : BaseFragment(), View.OnClickListener, HomeContract.View {
         }
     }
 
-    fun getPresenter(): HomePresent? {
-        homePresent = HomePresent(this, activity!!.application)
-        return homePresent
+
+    private fun eventViewpager() {
+        mViewPager.addOnPageChangeListener(object : OnPageChangeListener {
+
+            // This method will be invoked when a new page becomes selected.
+            override fun onPageSelected(position: Int) {
+                Toast.makeText(
+                    context,
+                    "Selected page position: $position", Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            // This method will be invoked when the current page is scrolled
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                // Code goes here
+            }
+
+            // Called when the scroll state changes:
+            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+            override fun onPageScrollStateChanged(state: Int) {
+                // Code goes here
+            }
+        })
+    }
+
+    private fun getHomePresenter(): HomePresent {
+        mHomePresent = HomePresent(this)
+        return mHomePresent!!
+    }
+
+    override fun showFragment(listWeatherData: List<WeatherData>) {
+        mListDataWeather = listWeatherData
+
+        mAdapter = HomePagerAdapter(
+            fragmentManager!!, mListDataWeather!!
+        )
+        mViewPager.setPageTransformer(true, ZoomOutPageTransformer())
+        mViewPager.adapter = mAdapter
+        eventViewpager()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mHomePresent?.let {
+            mHomePresent!!.unbindView()
+            mHomePresent = null
+        }
     }
 
 

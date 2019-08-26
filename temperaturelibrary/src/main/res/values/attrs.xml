@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SevenDayNext">
+
+        <attr name="temperature_min" format="string" />
+
+        <attr name="temperature_max" format="string" />
+
+        <attr name="temperature_humidity" format="string"/>
+
+        <attr name="day_of_week" format="string" />
+
+        <attr name="icon_weather" format="reference" />
+
+    </declare-styleable>
+
+    <declare-styleable name="AirIndicatorCustomView">
+        <attr name="progress_position" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MoonCustomView">
+        <attr name="percent_moon" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SunInDayCustom">
+        <attr name="start_time" format="string" />
+        <attr name="end_time" format="string" />
+        <attr name="now_time" format="string" />
+    </declare-styleable>
+</resources>

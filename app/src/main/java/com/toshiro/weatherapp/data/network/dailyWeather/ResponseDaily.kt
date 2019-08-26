@@ -3,9 +3,9 @@ package com.toshiro.weatherapp.data.network.dailyWeather
 
 import com.google.gson.annotations.SerializedName
 
-data class ResponseDailyWeather(
+data class ResponseDaily(
     @SerializedName("data")
-    val `data`: MutableList<DataDaily>,
+    val `data`: List<DataDaily>,
     @SerializedName("city_name")
     val cityName: String,
     @SerializedName("country_code")

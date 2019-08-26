@@ -66,8 +66,9 @@ dependencies {
 
     //Room
 
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // if you use the support libraries
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"

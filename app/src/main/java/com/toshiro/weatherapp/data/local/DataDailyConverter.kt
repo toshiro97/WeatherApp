@@ -11,18 +11,18 @@ class DataDailyConverter {
     var gson = Gson()
 
     @TypeConverter
-    fun fromDailyList(data: String?): MutableList<DataDaily>? {
+    fun fromDailyList(data: String?): List<DataDaily>? {
 
         if (data == null){
             return Collections.emptyList()
         }
-        val listType = object : TypeToken<MutableList<String>>() {}.type
+        val listType = object : TypeToken<List<String>>() {}.type
         return gson.fromJson(data, listType)
 
     }
 
     @TypeConverter
-    fun listDailyToString(listHourly: MutableList<DataDaily>?): String? {
+    fun listDailyToString(listHourly: List<DataDaily>?): String? {
         return gson.toJson(listHourly)
     }
 

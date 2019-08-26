@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.toshiro.weatherapp.data.local.DataDailyConverter
+import com.toshiro.weatherapp.data.local.DataHourlyConverter
 import com.toshiro.weatherapp.data.local.WeatherData
-import com.toshiro.weatherapp.data.network.currentWeather.DataCurrent
 
 
-@Database(entities = [WeatherData::class], version = 1)
+@Database(entities = [WeatherData::class], version = 1, exportSchema = false)
+@TypeConverters(DataDailyConverter::class, DataHourlyConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun weatherDao(): WeatherDAO
 
